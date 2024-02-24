@@ -9,10 +9,7 @@ import jakarta.persistence.Table;
 @Table (name = "administradores")
 public class Administrador {
 
-	@Id
-	@Column(name = "cod_admin")
-	private long id;
-	
+	@Id	
 	@Column(name = "usuario")
 	private String user;
 	
@@ -23,18 +20,9 @@ public class Administrador {
 		
 	}
 
-	public Administrador(long id, String user, String password) {
-		this.id = id;
+	public Administrador(String user, String password) {
 		this.user = user;
 		this.password = password;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getUser() {
