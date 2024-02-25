@@ -3,11 +3,14 @@ package com.example.proyecto.modelo;
 import java.sql.Date;
 import java.time.LocalTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,16 +32,34 @@ public class Viaje {
 	
 	@Column (name = "puestos_disponibles")
 	private int puestos;
+	
+	@Column (name = "precio")
+	private long precio;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "numero_bus", referencedColumnName="numero_bus")
+	private Bus bus;
 
 	public Viaje() {
 		
 	}
 
-	public Viaje( String destino, Date fecha, LocalTime hora, int puestos) {
+	public Viaje(Long id_viaje, String destino, Date fecha, LocalTime hora, int puestos, long precio, Bus bus) {
+		this.id_viaje = id_viaje;
 		this.destino = destino;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.puestos = puestos;
+		this.precio = precio;
+		this.bus = bus;
+	}
+
+	public Long getId_viaje() {
+		return id_viaje;
+	}
+
+	public void setId_viaje(Long id_viaje) {
+		this.id_viaje = id_viaje;
 	}
 
 	public String getDestino() {
@@ -72,9 +93,22 @@ public class Viaje {
 	public void setPuestos(int puestos) {
 		this.puestos = puestos;
 	}
-	
-	
-	
+
+	public long getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(long precio) {
+		this.precio = precio;
+	}
+
+	public Bus getBus() {
+		return bus;
+	}
+
+	public void setBus(Bus bus) {
+		this.bus = bus;
+	}
 	
 	
 	
