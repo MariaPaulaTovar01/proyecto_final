@@ -7,4 +7,5 @@ import com.example.proyecto.modelo.reserva;
 @Repository
 public interface RepositorioReserva extends JpaRepository < reserva, Long > {
 
+	
 }
