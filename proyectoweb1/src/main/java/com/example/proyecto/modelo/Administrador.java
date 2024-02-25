@@ -13,8 +13,8 @@ public class Administrador {
 	@Column(name = "usuario")
 	private String user;
 	
-	@Column(name = "password")
-	private String password;
+	@Column(name = "contrasena")
+	private String contrasena;
 
 	public Administrador() {
 		
@@ -22,7 +22,7 @@ public class Administrador {
 
 	public Administrador(String user, String password) {
 		this.user = user;
-		this.password = password;
+		this.contrasena = password;
 	}
 
 	public String getUser() {
@@ -34,11 +34,11 @@ public class Administrador {
 	}
 
 	public String getPassword() {
-		return password;
+		return contrasena;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.contrasena = password;
 	}
 	
 	
