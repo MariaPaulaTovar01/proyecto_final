@@ -6,12 +6,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "administradores")
+@Table (name = "administrador")
 public class Administrador {
 
 	@Id	
 	@Column(name = "usuario")
-	private String user;
+	private String usuario;
 	
 	@Column(name = "contrasena")
 	private String contrasena;
@@ -20,28 +20,26 @@ public class Administrador {
 		
 	}
 
-	public Administrador(String user, String password) {
-		this.user = user;
-		this.contrasena = password;
+	public Administrador(String usuario, String contrasena) {
+		this.usuario = usuario;
+		this.contrasena = contrasena;
 	}
 
-	public String getUser() {
-		return user;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
-	public String getPassword() {
+	public String getContrasena() {
 		return contrasena;
 	}
 
-	public void setPassword(String password) {
-		this.contrasena = password;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
-	
-	
 	
 	
 	

@@ -27,7 +27,7 @@ public class ControladorAdministrador {
 		AtomicBoolean permiso = new AtomicBoolean(false);
 		List<Administrador> verificar = repositorioAdm.findAll();
 		verificar.forEach(elemento ->{
-			if(elemento.getUser().equals("david") || elemento.getPassword().equals("asdfghjkl")) 
+			if(elemento.getUsuario().equals("david") || elemento.getContrasena().equals("asdfghjkl")) 
 			{
 				permiso.set(true);;
 			}
