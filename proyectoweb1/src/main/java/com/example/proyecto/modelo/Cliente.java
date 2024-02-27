@@ -8,100 +8,83 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "clientes")
+@Table (name = "cliente")
 public class Cliente {
 	@Id
-	@Column(name = "identificacion")
-	private long id;
+	@Column(name = "cedula")
+	private Integer cedula;
 	
 	@Column(name = "nombre")
 	private String nombre;
 	
-	@Column(name ="apellidos")
-	private String apellidos;
+	@Column(name ="apellido")
+	private String apellido;
 	
 	@Column(name = "telefono")
 	private long telefono;
 	
 	@Column (name = "fecha_nacimiento")
-	private LocalDate fecha_nac;
+	private LocalDate fecha_nacimiento;
 	
-	@Column (name = "fecha_reserva")
-	private LocalDate fecha_r;
+	
 	
 	public Cliente() {
 		
 	}
-	
 
-	public Cliente(long id, String nombre, String apellidos, long telefono, LocalDate fecha_nac, LocalDate fecha_r) {
-		this.id = id;
+	public Cliente(Integer cedula, String nombre, String apellido, long telefono, LocalDate fecha_nacimiento) {
+		this.cedula = cedula;
 		this.nombre = nombre;
-		this.apellidos = apellidos;
+		this.apellido = apellido;
 		this.telefono = telefono;
-		this.fecha_nac = fecha_nac;
-		this.fecha_r = fecha_r;
+		this.fecha_nacimiento = fecha_nacimiento;
+		
 	}
 
-
-	public long getId() {
-		return id;
+	public Integer getCedula() {
+		return cedula;
 	}
 
-
-	public void setId(long id) {
-		this.id = id;
+	public void setCedula(Integer cedula) {
+		this.cedula = cedula;
 	}
-
 
 	public String getNombre() {
 		return nombre;
 	}
 
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-
-	public String getApellidos() {
-		return apellidos;
+	public String getApellido() {
+		return apellido;
 	}
 
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
-
 
 	public long getTelefono() {
 		return telefono;
 	}
 
-
 	public void setTelefono(long telefono) {
 		this.telefono = telefono;
 	}
 
-
-	public LocalDate getFecha_nac() {
-		return fecha_nac;
+	public LocalDate getFecha_nacimiento() {
+		return fecha_nacimiento;
 	}
 
-
-	public void setFecha_nac(LocalDate fecha_nac) {
-		this.fecha_nac = fecha_nac;
+	public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
+	
+	
+	
 
-	public LocalDate getFecha_r() {
-		return fecha_r;
-	}
-
-
-	public void setFecha_r(LocalDate fecha_r) {
-		this.fecha_r = fecha_r;
-	}
 	
 
 }

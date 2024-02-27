@@ -7,12 +7,15 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 @Repository
-public interface RepositorioCliente extends JpaRepository< Cliente , Long >{
+public interface RepositorioCliente extends JpaRepository< Cliente , Integer >{
 
-	@Query ( value = "Select v.destino, v.fecha_viaje, v.hora_viaje, b.numero_bus, v.precio " 
-			+ "from proyecto.viajes v inner join proyecto.buses b on v.numero_bus = b.numero_bus "
-			+ "group by v.destino", nativeQuery = true)
-		public List<Object>Busca_Bus();
+ @Query(value = "select distinct reserva.puesto_asignado, viaje.precio\r\n"
+ 		+ "from proyecto.reserva, proyecto.viaje\r\n"
+ 		+ "where cc_cliente = :cedula ", nativeQuery=true)
+ public List<Object>Reservar(@Param("cedula")Integer cedula);
+ 
 }
+

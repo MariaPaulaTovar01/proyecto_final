@@ -23,14 +23,15 @@ public class ControladorReserva {
 
 	
 	
-	////@GetMapping("/guarda_reserva")
-	////public String guarda_reserva() {
-		///Cliente c = this.repositorioC.findById(101010100L).get();
-		///Viaje v = this.repositorioV.findById(1L);
-		///reserva r = new reserva(c);
-		////this.repositorioR.save(r);
-		///return "Reserva Realizada con exito";
-	}
+	/*@GetMapping("/guarda_reserva")
+	public String MostrarReserva() {
+		Cliente c = this.repositorioC.findById(101010100L).get();
+		Viaje v = this.repositorioV.findById(1L);
+		reserva r = new reserva(c, v);
+		this.repositorioR.save(r);
+		return "Reserva Realizada con exito";
+	}*/
+}
 	
 
 	
