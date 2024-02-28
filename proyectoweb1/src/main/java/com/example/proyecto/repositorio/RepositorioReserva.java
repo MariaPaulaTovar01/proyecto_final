@@ -21,8 +21,8 @@ public interface RepositorioReserva extends JpaRepository < reserva, Integer > {
 			+ "on viaje.id_viaje = reserva.id_viaje and cc_cliente = :cedula", nativeQuery = true)
 	public List <Object> ConsultarReserva(@Param("cedula") Integer cedula);
 	
-	@Query()
-	public void Cancelar_Reserva();
+	/*@Query()
+	public void Cancelar_Reserva();*/
 	
 	
 }

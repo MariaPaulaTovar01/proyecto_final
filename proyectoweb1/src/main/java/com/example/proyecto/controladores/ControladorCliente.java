@@ -23,8 +23,10 @@ public class ControladorCliente {
 	
 	@Autowired
 	private RepositorioCliente repositorioCliente;
-	@Autowired RepositorioReserva repositorio_R;
-	@Autowired RepositorioViaje repositorio_V;
+	@Autowired 
+	private RepositorioReserva repositorio_R;
+	@Autowired 
+	private RepositorioViaje repositorio_V;
 	
 		/*CASO DE USO 1: REALIZAR-RESERVA-USUARIO*/
 	
