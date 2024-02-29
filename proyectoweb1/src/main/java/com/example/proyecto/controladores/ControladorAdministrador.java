@@ -20,7 +20,9 @@ public class ControladorAdministrador {
 	@Autowired
 	private RepositorioAdministador repositorioAdm;
 	@Autowired
-	private RepositorioReserva repositorioR;
+	private RepositorioReserva repositorioReserva;
+
+
 	
 	@GetMapping("/mostraradm")
 	public List<Administrador> verAdm(){
@@ -40,11 +42,17 @@ public class ControladorAdministrador {
 		return permiso.get();
 	}
 	
+
+	@GetMapping("/BuscarPorBus")
+	public List<Object> MostrarPorBus(){
+		String bus= "BUS001";
+		return repositorioReserva.Mostrar_Por_Bus(bus);
+	}
+
 	@GetMapping("/listarDia")
 	public List<Object>ListarDia(){
 		LocalDate fecha_busqueda = LocalDate.now();
-		return this.repositorioR.ListarDia(fecha_busqueda);
+		return this.repositorioReserva.ListarDia(fecha_busqueda);
 	}
-	
 
 }
