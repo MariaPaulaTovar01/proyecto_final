@@ -1,5 +1,6 @@
 package com.example.proyecto.repositorio;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,6 +26,7 @@ public interface RepositorioReserva extends JpaRepository < reserva, Integer > {
 			+ "join proyecto.reserva on viaje.id_viaje = reserva.id_viaje and reserva.cc_cliente = :cedula", nativeQuery = true)
 	public List <Object> ConsultarReserva(@Param("cedula") Integer cedula);
 	
+
 	@Query(value = "select viaje.id_bus, reserva.id_reserva, cliente.nombre, cliente.apellido "
 			+ "from proyecto.reserva "
 			+ "join proyecto.viaje on reserva.id_viaje = viaje.id_viaje "
@@ -37,6 +39,14 @@ public interface RepositorioReserva extends JpaRepository < reserva, Integer > {
 	@Query(value="delete from proyecto.reserva where reserva.id_reserva = :numero_reserva ", nativeQuery = true)
 	public void EliminarReserva(@Param("numero_reserva") Integer numero_reserva);
 	
+
+	@Query(value = "select viaje.fecha , cliente.nombre, cliente.apellido, reserva.fecha_de_reserva "
+			+ "from proyecto.reserva "
+			+ "inner join proyecto.viaje "
+			+ "inner join proyecto.cliente "
+			+ "on reserva.id_viaje = viaje.id_viaje and reserva.cc_cliente = cliente.cedula "
+			+ "where reserva.fecha_de_reserva = :fecha_de_reserva", nativeQuery=true)
+	public List<Object>ListarDia( @Param("fecha_de_reserva")LocalDate fecha_de_reserva);
 	
 	
 }
