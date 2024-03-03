@@ -13,10 +13,10 @@ public interface RepositorioViaje extends JpaRepository< Viaje, Integer> {
 
 	public List<Viaje> findByDestino(String destino);
 
-	 @Query(value = "Select v.destino, v.fecha, v.hora, b.matricula, v.precio \r\n"
-	 		+ "from proyecto.viaje v \r\n"
-	 		+ "inner join proyecto.bus b\r\n"
-	 		+ "on v.id_bus = b.matricula\r\n"
+	 @Query(value = "Select v.destino, v.fecha, v.hora, b.matricula, v.precio "
+	 		+ "from proyecto.viaje "
+	 		+ "inner join proyecto.bus b "
+	 		+ "on v.id_bus = b.matriculan"
 	 		+ "group by v.destino;", nativeQuery = true )
 			public List<Object>BuscarViaje();
 	 
